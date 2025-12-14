@@ -1,0 +1,36 @@
+
+name: Send Email (Gmail)
+
+on:
+  push:
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Email via Gmail SMTP
+        uses: dawidd6/action-send-mail@v3
+        with:
+          # Gmail SMTP settings
+          server_address: smtp.gmail.com
+          server_port: 587
+
+          # Credentials: use Gmail address + App Password
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+
+          # Email metadata
+          from: ${{ secrets.EMAIL_USERNAME }} # must be your Gmail address
+          to: bharatrajdevopseng@gmail.com
+          subject: Test Email from GitHub Actions
+
+          # Content (plain text); use `content_type: text/html` for HTML
+          body: |
+            This is a test email sent from a GitHub Actions workflow.
+            Triggered by a push to the repository.
+
+          # Optional: enable TLS explicitly (usually auto with port 587)
+          secure: true
+
+          # Optional: if Gmail throttles, retry
+         
