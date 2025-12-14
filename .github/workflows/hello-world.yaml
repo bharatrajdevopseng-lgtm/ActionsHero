@@ -1,7 +1,7 @@
 
 name: Hello World
 
-on:
+off:
   push:
     branches:
       - main
@@ -24,3 +24,4 @@ jobs:
             - name: Goodbye Action
               run: echo "Goodbye, World!"
               shell: bash   
+
