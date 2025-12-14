@@ -1,0 +1,18 @@
+name: Sending email
+on:
+  push:
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.example.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          from: ${{ secrets.EMAIL_USERNAME }}
+          subject: Test Email from GitHub Actions
+          body: This is a test email sent from a GitHub Actions workflow.
+          to: bharatrajdevopseng@gmail.com
