@@ -13,6 +13,9 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           from: ${{ secrets.EMAIL_USERNAME }}
-          subject: Test Email from GitHub Actions
-          body: This is a test email sent from a GitHub Actions workflow.
           to: bharatrajdevopseng@gmail.com
+          subject: Test Email from GitHub Actions
+          body: |
+          This is a test email sent from a GitHub Actions workflow.
+          Triggered by a push to the repository.
+          # Remove or set 'secure: false'
